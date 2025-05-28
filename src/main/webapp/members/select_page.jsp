@@ -62,7 +62,7 @@ h4 {
 
 		<li>
 			<FORM METHOD="post" ACTION="members.do">
-				<b>輸入會員編號 (1~10):</b> <input type="text" name="memberId"> <input
+				<b>輸入會員編號：</b> <input type="text" name="memberId"> <input
 					type="hidden" name="action" value="getOne_For_Display"> <input
 					type="submit" value="送出">
 			</FORM>

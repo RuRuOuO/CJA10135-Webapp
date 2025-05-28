@@ -143,6 +143,8 @@ public class MembersServlet extends HttpServlet {
 			}
 
 			// 7.會員性別
+			System.out.println(req.getParameter("memberGender"));
+			System.out.println(req.getParameter("memberGender").trim());
 			Integer memberGender = Integer.valueOf(req.getParameter("memberGender").trim());
 
 			// 8.會員電話
@@ -168,34 +170,37 @@ public class MembersServlet extends HttpServlet {
 			InputStream is = part.getInputStream();
 			memberPhoto = is.readAllBytes();
 			is.close();
-			
 
 			// 11.會員建立日期
-			Timestamp memberCreatedAt = null;
-			try {
-				memberCreatedAt = Timestamp.valueOf(req.getParameter("memberCreatedAt").trim());
-			} catch (IllegalArgumentException e) {
-				memberCreatedAt = new Timestamp(System.currentTimeMillis());
-				errorMsgs.add("請輸入日期!");
-			}
+//			Timestamp memberCreatedAt = null;
+//			try {
+//				memberCreatedAt = Timestamp.valueOf(req.getParameter("memberCreatedAt").trim());
+//			} catch (IllegalArgumentException e) {
+//				memberCreatedAt = new Timestamp(System.currentTimeMillis());
+//				errorMsgs.add("請輸入日期!");
+//			}
+			System.out.println(req.getParameter("memberCreatedAt"));
+			Timestamp memberCreatedAt = Timestamp.valueOf(req.getParameter("memberCreatedAt").trim());
 
 			// 12.會員更新日期
-			Timestamp memberUpdatedAt = null;
-			try {
-				memberUpdatedAt = Timestamp.valueOf(req.getParameter("memberUpdatedAt").trim());
-			} catch (IllegalArgumentException e) {
-				memberUpdatedAt = new Timestamp(System.currentTimeMillis());
-				errorMsgs.add("請輸入日期!");
-			}
+//			Timestamp memberUpdatedAt = null;
+//			try {
+//				memberUpdatedAt = Timestamp.valueOf(req.getParameter("memberUpdatedAt").trim());
+//			} catch (IllegalArgumentException e) {
+//				memberUpdatedAt = new Timestamp(System.currentTimeMillis());
+//				errorMsgs.add("請輸入日期!");
+//			}
+			Timestamp memberUpdatedAt = new Timestamp(System.currentTimeMillis());
 
 			// 13.會員最後登入時間
-			Timestamp memberLastLoginTime = null;
-			try {
-				memberLastLoginTime = Timestamp.valueOf(req.getParameter("memberLastLoginTime").trim());
-			} catch (IllegalArgumentException e) {
-				memberLastLoginTime = new Timestamp(System.currentTimeMillis());
-				errorMsgs.add("請輸入日期!");
-			}
+//			Timestamp memberLastLoginTime = null;
+//			try {
+//				memberLastLoginTime = Timestamp.valueOf(req.getParameter("memberLastLoginTime").trim());
+//			} catch (IllegalArgumentException e) {
+//				memberLastLoginTime = new Timestamp(System.currentTimeMillis());
+//				errorMsgs.add("請輸入日期!");
+//			}
+			Timestamp memberLastLoginTime = Timestamp.valueOf(req.getParameter("memberLastLoginTime").trim());
 
 			// 14.會員狀態
 			Integer memberStatus = Integer.valueOf(req.getParameter("memberStatus").trim());
@@ -327,7 +332,6 @@ public class MembersServlet extends HttpServlet {
 //				errorMsgs.add("請輸入日期!");
 //			}
 			Timestamp memberUpdatedAt = new Timestamp(System.currentTimeMillis());
-			
 
 			// 13.會員最後登入時間
 //			Timestamp memberLastLoginTime = null;
@@ -397,7 +401,7 @@ public class MembersServlet extends HttpServlet {
 			RequestDispatcher successView = req.getRequestDispatcher(url);// 刪除成功後,轉交回送出刪除的來源網頁
 			successView.forward(req, res);
 		}
-		
+
 		/******************** ？？？、顯示圖片 ********************/
 		if ("showImage".equals(action)) {
 			byte[] imageBytes = null;

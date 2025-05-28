@@ -78,7 +78,8 @@ th, td {
 		</ul>
 	</c:if>
 
-	<FORM METHOD="post" ACTION="members.do" name="form1" enctype="multipart/form-data">
+	<FORM METHOD="post" ACTION="members.do" name="form1"
+		enctype="multipart/form-data">
 		<table>
 
 
@@ -113,17 +114,15 @@ th, td {
 			</tr>
 			<tr>
 				<td>會員性別:</td>
-<!-- 				<td><input type="TEXT" name="memberGender" -->
-<%-- 					value="<%=(membersVO == null) ? "" : membersVO.getMemberGender()%>" --%>
-<!-- 					size="45" /></td> -->
-				<td><input type="RADIO" id="0" name="memberGender"
-					value=0 <%="0".equals(request.getParameter("memberGender")) ? "checked" : "" %> 
-					size="45" />
-					<label for="0">男</label>
-					<input type="RADIO" id="1" name="memberGender"
-					value=1 <%="1".equals(request.getParameter("memberGender")) ? "checked" : "" %>
-					size="45" />
-					<label for="1">女</label></td>
+				<!-- 				<td><input type="TEXT" name="memberGender" -->
+				<%-- 					value="<%=(membersVO == null) ? "" : membersVO.getMemberGender()%>" --%>
+				<!-- 					size="45" /></td> -->
+				<td><input type="RADIO" id="0" name="memberGender" value=0
+					<%="0".equals(request.getParameter("memberGender")) ? "checked" : ""%>
+					size="45" /> <label for="0">男</label> <input type="RADIO" id="1"
+					name="memberGender" value=1
+					<%="1".equals(request.getParameter("memberGender")) ? "checked" : ""%>
+					size="45" /> <label for="1">女</label></td>
 			</tr>
 			<tr>
 				<td>會員電話:</td>
@@ -143,24 +142,24 @@ th, td {
 					value="<%=(membersVO == null) ? "" : membersVO.getMemberPhoto()%>"
 					size="45" /></td>
 			</tr>
-<!-- 			<tr> -->
-<!-- 				<td>會員建立日期:</td> -->
-<!-- 				<td><input name="memberCreatedAt" id="f_date2" type="text"></td> -->
-<!-- 			</tr> -->
-<!-- 			<tr> -->
-<!-- 				<td>會員更新日期:</td> -->
-<!-- 				<td><input name="memberUpdatedAt" id="f_date3" type="text"></td> -->
-<!-- 			</tr> -->
-<!-- 			<tr> -->
-<!-- 				<td>最後登入時間:</td> -->
-<!-- 				<td><input name="memberLastLoginTime" id="f_date4" type="text"></td> -->
-<!-- 			</tr> -->
-<!-- 			<tr> -->
-<!-- 				<td>會員狀態:</td> -->
-<!-- 				<td><input type="TEXT" name="memberStatus" -->
-<%-- 					value="<%=(membersVO == null) ? "" : membersVO.getMemberStatus()%>" --%>
-<!-- 					size="45" /></td> -->
-<!-- 			</tr> -->
+			<!-- 			<tr> -->
+			<!-- 				<td>會員建立日期:</td> -->
+			<!-- 				<td><input name="memberCreatedAt" id="f_date2" type="text"></td> -->
+			<!-- 			</tr> -->
+			<!-- 			<tr> -->
+			<!-- 				<td>會員更新日期:</td> -->
+			<!-- 				<td><input name="memberUpdatedAt" id="f_date3" type="text"></td> -->
+			<!-- 			</tr> -->
+			<!-- 			<tr> -->
+			<!-- 				<td>最後登入時間:</td> -->
+			<!-- 				<td><input name="memberLastLoginTime" id="f_date4" type="text"></td> -->
+			<!-- 			</tr> -->
+			<!-- 			<tr> -->
+			<!-- 				<td>會員狀態:</td> -->
+			<!-- 				<td><input type="TEXT" name="memberStatus" -->
+			<%-- 					value="<%=(membersVO == null) ? "" : membersVO.getMemberStatus()%>" --%>
+			<!-- 					size="45" /></td> -->
+			<!-- 			</tr> -->
 
 
 			<%-- 	<jsp:useBean id="deptSvc" scope="page" class="com.dept.model.DeptService" /> --%>
