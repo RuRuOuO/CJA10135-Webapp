@@ -73,8 +73,8 @@ th, td {
 		<tr>
 			<th>會員編號</th>
 			<th>會員信箱</th>
-			<th>會員雜湊密碼</th>
-			<th>會員密碼鹽值</th>
+<!-- 			<th>會員雜湊密碼</th> -->
+<!-- 			<th>會員密碼鹽值</th> -->
 			<th>會員姓名</th>
 			<th>會員生日</th>
 			<th>會員性別</th>
@@ -91,11 +91,11 @@ th, td {
 		<tr>
 			<td><%=membersVO.getMemberId()%></td>
 			<td><%=membersVO.getMemberEmail()%></td>
-			<td><%=membersVO.getMemberPasswordHash()%></td>
-			<td><%=membersVO.getMemberPasswordSalt()%></td>
+<%-- 			<td><%=membersVO.getMemberPasswordHash()%></td> --%>
+<%-- 			<td><%=membersVO.getMemberPasswordSalt()%></td> --%>
 			<td><%=membersVO.getMemberName()%></td>
 			<td><%=membersVO.getMemberBirthdate()%></td>
-			<td><%=membersVO.getMemberGender()%></td>
+			<td><%=membersVO.getMemberGender()==0 ? "男" : "女"%></td>
 			<td><%=membersVO.getMemberPhone()%></td>
 			<td><%=membersVO.getMemberAddress()%></td>
 			<td><img
@@ -104,7 +104,7 @@ th, td {
 			<td><%=membersVO.getMemberCreatedAt()%></td>
 			<td><%=membersVO.getMemberUpdatedAt()%></td>
 			<td><%=membersVO.getMemberLastLoginTime()%></td>
-			<td><%=membersVO.getMemberStatus()%></td>
+			<td><%=membersVO.getMemberStatus()==0 ? "未驗證" : "已驗證"%></td>
 			<td>
 				<FORM METHOD="post"
 					ACTION="<%=request.getContextPath()%>/members/members.do"

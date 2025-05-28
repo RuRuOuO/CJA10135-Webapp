@@ -60,7 +60,7 @@ th, td {
 	<table id="table-1">
 		<tr>
 			<td>
-				<h3>所有員工資料 - listAllMembers.jsp</h3>
+				<h3>所有會員資料 - listAllMembers.jsp</h3>
 				<h4>
 					<a href="select_page.jsp"><img src="images/back1.gif"
 						width="100" height="32" border="0">回首頁</a>
@@ -73,8 +73,8 @@ th, td {
 		<tr>
 			<th>會員編號</th>
 			<th>會員信箱</th>
-			<th>會員雜湊密碼</th>
-			<th>會員密碼鹽值</th>
+<!-- 			<th>會員雜湊密碼</th> -->
+<!-- 			<th>會員密碼鹽值</th> -->
 			<th>會員姓名</th>
 			<th>會員生日</th>
 			<th>會員性別</th>
@@ -95,18 +95,18 @@ th, td {
 			<tr>
 				<td>${membersVO.memberId}</td>
 				<td>${membersVO.memberEmail}</td>
-				<td>${membersVO.memberPasswordHash}</td>
-				<td>${membersVO.memberPasswordSalt}</td>
+<%-- 				<td>${membersVO.memberPasswordHash}</td> --%>
+<%-- 				<td>${membersVO.memberPasswordSalt}</td> --%>
 				<td>${membersVO.memberName}</td>
 				<td>${membersVO.memberBirthdate}</td>
-				<td>${membersVO.memberGender}</td>
+				<td>${membersVO.memberGender==0 ? "男" : "女"}</td>
 				<td>${membersVO.memberPhone}</td>
 				<td>${membersVO.memberAddress}</td>
 				<td><img src="${pageContext.request.contextPath}/members/members.do?action=showImage&memberId=${membersVO.memberId}" width="100"></td>
 				<td>${membersVO.memberCreatedAt}</td>
 				<td>${membersVO.memberUpdatedAt}</td>
 				<td>${membersVO.memberLastLoginTime}</td>
-				<td>${membersVO.memberStatus}</td>
+				<td>${membersVO.memberStatus==0 ? "未驗證" : "已驗證"}</td>
 
 				<td>
 					<FORM METHOD="post"

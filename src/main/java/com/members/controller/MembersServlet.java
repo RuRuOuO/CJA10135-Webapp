@@ -166,9 +166,13 @@ public class MembersServlet extends HttpServlet {
 			byte[] memberPhoto = null;
 			Part part = req.getPart("memberPhoto");
 			InputStream is = part.getInputStream();
-			memberPhoto = is.readAllBytes();
+			if (is.available() != 0) {
+				memberPhoto = is.readAllBytes();
+			} else {
+				MembersService membersSvc = new MembersService();
+				memberPhoto = membersSvc.getOneMember(memberId).getMemberPhoto();
+			}
 			is.close();
-			
 
 			// 11.會員建立日期
 			Timestamp memberCreatedAt = null;
@@ -282,7 +286,16 @@ public class MembersServlet extends HttpServlet {
 			}
 
 			// 7.會員性別
-			Integer memberGender = Integer.valueOf(req.getParameter("memberGender").trim());
+			Integer memberGender = null;
+			try {
+				memberGender = Integer.valueOf(req.getParameter("memberGender").trim());
+			} catch (Exception e) {
+				if (req.getParameter("memberGender") == null) {
+					errorMsgs.add("請輸入性別!");
+				} else {
+					errorMsgs.add("請輸入性別!");
+				}
+			}
 
 			// 8.會員電話
 			String memberPhone = req.getParameter("memberPhone");
@@ -327,7 +340,6 @@ public class MembersServlet extends HttpServlet {
 //				errorMsgs.add("請輸入日期!");
 //			}
 			Timestamp memberUpdatedAt = new Timestamp(System.currentTimeMillis());
-			
 
 			// 13.會員最後登入時間
 //			Timestamp memberLastLoginTime = null;
@@ -397,7 +409,7 @@ public class MembersServlet extends HttpServlet {
 			RequestDispatcher successView = req.getRequestDispatcher(url);// 刪除成功後,轉交回送出刪除的來源網頁
 			successView.forward(req, res);
 		}
-		
+
 		/******************** ？？？、顯示圖片 ********************/
 		if ("showImage".equals(action)) {
 			byte[] imageBytes = null;

@@ -79,12 +79,12 @@
 		<td><input type="TEXT" name="memberEmail" value="<%=membersVO.getMemberEmail()%>" size="45"/></td>
 	</tr>
 	<tr>
-		<td>會員雜湊密碼:</td>
-		<td><input type="TEXT" name="memberPasswordHash" value="<%=membersVO.getMemberPasswordHash()%>" size="45"/></td>
+		<td>會員密碼:</td>
+		<td><input type="PASSWORD" name="memberPasswordHash" value="<%=membersVO.getMemberPasswordHash()%>" size="45"/></td>
 	</tr>
 	<tr>
 		<td>會員密碼鹽值:</td>
-		<td><input type="TEXT" name="memberPasswordSalt" value="<%=membersVO.getMemberPasswordSalt()%>" size="45"/></td>
+		<td><input type="PASSWORD" name="memberPasswordSalt" value="<%=membersVO.getMemberPasswordSalt()%>" size="45" readonly/></td>
 	</tr>
 	<tr>
 		<td>會員姓名:</td>
@@ -110,26 +110,30 @@
 <!-- 		<td>目前照片:</td> -->
 <%-- 		<td><input type="TEXT" name="memberPhoto" value="<%=membersVO.getMemberPhoto()%>" size="45"/></td> --%>
 		<td>目前照片:</td>
-		<td><img src="<%=request.getContextPath() %>/members/ShowImage?memberId=<%=membersVO.getMemberId() %>"
-		    width="200" height="150"/></td>
+		<td><img
+				src="${pageContext.request.contextPath}/members/members.do?action=showImage&memberId=${membersVO.memberId}"
+				width="100"></td>
+	</tr>
+	<tr>
 		<td>上傳照片:</td>
 		<td><input type="file" name="memberPhoto" value="<%=membersVO.getMemberPhoto()%>" size="45"/></td>
+<%-- 		<td><input type="file" name="memberPhoto" value="${pageContext.request.contextPath}/members/members.do?action=showImage&memberId=${membersVO.memberId}" size="45"/></td> --%>
 	</tr>
 	<tr>
 		<td>會員建立日期:</td>
-		<td><input name="memberCreatedAt" id="f_date2" type="text" ></td> 
+		<td><input name="memberCreatedAt" id="f_date2" type="text" readonly></td> 
 	</tr>
 	<tr>
 		<td>會員更新日期:</td>
-		<td><input name="memberUpdatedAt" id="f_date3" type="text" ></td> 
+		<td><input name="memberUpdatedAt" id="f_date3" type="text" readonly></td> 
 	</tr>
 	<tr>
 		<td>最後登入時間:</td>
-		<td><input name="memberLastLoginTime" id="f_date4" type="text" ></td> 
+		<td><input name="memberLastLoginTime" id="f_date4" type="text" readonly></td> 
 	</tr>
 	<tr>
 		<td>會員狀態:</td>
-		<td><input type="TEXT" name="memberStatus" value="<%=membersVO.getMemberStatus()%>" size="45"/></td>
+		<td><input type="TEXT" name="memberStatus" value="<%=membersVO.getMemberStatus()%>" size="45" readonly/></td>
 	</tr>
 
 <%-- 	<jsp:useBean id="deptSvc" scope="page" class="com.dept.model.DeptService" /> --%>
